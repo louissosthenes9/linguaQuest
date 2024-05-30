@@ -5,24 +5,35 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center justify-center whitespace-nowrap tracking-wide  uppercase rounded-xl text-sm font-bold ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        default: "bg-white active:border-b-2 test-slate-100 hover:bg-slate-100 text-black border-slate-200 border-2 border-b-[4px]",
+        primary:"bg-sky-400  text-primary-foreground hover:bg-sky-400/90 border-b-4 border-sky-500 active:border-b-0", 
+        primaryOutline:"bg-white text-sky-500",
+        secondary:"bg-green-500  text-primary-foreground hover:bg-green-500/90 border-b-4 border-green-600 active:border-b-0", 
+        secondaryOutline:"bg-white text-green-500",
+        danger:"bg-rose-500  text-primary-foreground hover:bg-rose-500/90 border-b-4 border-rose-600 active:border-b-0", 
+        dangerOutline:"bg-white text-rose-500",
+        super:"bg-yellow-300  text-primary-foreground hover:bg-yellow-500/90 border-b-4 border-yellow-600 active:border-b-0", 
+        superOutline:"bg-white text-yellow-500",
+        sideBarOutline:"bg-sky-500/15 text-sky-500 border-sky-300 border-2 hover:bg-sky-500/20 transition-none",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:
           "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-        secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
+        ghost: "bg-transparent text-slate-500 hover:bg-accent hover:text-accent-foreground",
+        link: "border-transparent hover:bg-slate-100 border-0 text-primary underline-offset-4 hover:underline",
+        premium:
+          "bg-indigo-500 text-white",
+
       },
       size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-9 rounded-md px-3",
-        lg: "h-11 rounded-md px-8",
+        default: "h-11 px-4 py-2",
+        sm: "h-9  px-3",
+        rounded:"rounded-full",
+        lg: "h-12 px-8",
         icon: "h-10 w-10",
       },
     },
