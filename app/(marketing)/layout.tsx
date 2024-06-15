@@ -1,6 +1,7 @@
+"use client"
 import Footer from "./footer"
 import Header from "./header"
-
+import "../../app/globals.css";
 type Props = {
     children:React.ReactNode
 }
