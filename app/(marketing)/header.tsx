@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function Header() {
   return (
-   <header className="h-20 w-full px-4 border-b-2 border-slate-20">
+   <header className="h-20 w-full px-4 border-b-2 border-slate-200">
       <div className="lg:max-w-screen-lg mx-auto flex justify-between h-full items-center">
         <div className="pt-8 pl-4 pb-7 flex items-center gap-x-3">
              <Image 
