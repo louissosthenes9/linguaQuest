@@ -1,4 +1,7 @@
 "use client"
+
+import Sidebar from "@/components/Sidebar"
+
 type Props = {
     children : React.ReactNode
 }
@@ -7,9 +10,12 @@ const MainLayout = ({
     children,
 }: Props)=>{
    return(   
-   <main className="bg-red-500">
-        {children}
-    </main>
+    <>
+    <Sidebar />
+      <main className="pl-[256px] h-full">
+        div
+      </main>
+    </>
     )
 }
 
