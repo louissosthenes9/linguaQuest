@@ -13,10 +13,10 @@ const MainLayout = ({
 }: Props)=>{
    return(   
     <>
-        <MobileHeader />
-        <Sidebar/>
+      <MobileHeader />
+      <Sidebar/>
       <main className="pl-[256px] h-full">
-        div
+        {children}
       </main>
     </>
     )
