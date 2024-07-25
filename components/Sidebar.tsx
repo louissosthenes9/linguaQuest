@@ -2,9 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import SideBarItem from './SideBarItem'
-export default function Sidebar() {
+import { cn } from "@/lib/utils";
+
+type Props = {
+  className?:string;
+}
+export default function Sidebar({className}:Props) {
   return (
-    <div className="hidden lg:flex w-[256px] h-full">
+    <div className={cn("flex h-full lg:fixed  left-0 top-0 px-4 lg:w-[256px]  border-r-2  flex-col", className)}>
       <Link href={"/learn"}>
       <div className="pt-8 pl-4 pb-7 flex gap-x-3">
         <div>
@@ -18,9 +23,8 @@ export default function Sidebar() {
       </div>
       </Link>
 
-
        <div className="flex flex-col gap-y-2 flex-1">
-          <SideBarItem label="learn" iconSrc={""} href="/" />
+          <SideBarItem label="learn" iconSrc={"/learn.svg"} href="/learn" />
        </div>
     </div>
   );
