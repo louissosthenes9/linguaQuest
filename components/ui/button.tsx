@@ -19,6 +19,8 @@ const buttonVariants = cva(
         super:"bg-yellow-300  text-primary-foreground hover:bg-yellow-500/90 border-b-4 border-yellow-600 active:border-b-0", 
         superOutline:"bg-white text-yellow-500",
         sideBarOutline:"bg-sky-500/15 text-sky-500 border-sky-300 border-2 hover:bg-sky-500/20 transition-none",
+        sideBar:"bg-transparent text-slate-500 border-2 border-transparent hover:bg-slate-100",
+       
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:
