@@ -7,7 +7,7 @@ type Props = {
 }
 export default function Header({title}:Props) {
   return (
-    <div className="sticky top-0 bg-white pb-3 lg:pt-[28px] flex items-center justify-between border-b-2 mb-5 text-neutral-400 lg:z-50">
+    <div className="sticky top-0 bg-white pb-3 lg:pt-[28px] flex items-center justify-between border-b-2 mb-5 text-neutral-400 lg:z-50 lg:mt-[-28px]">
 
         <Link href={'/courses'}>
              <Button variant={'ghost'} size={'sm'}>
