@@ -2,7 +2,7 @@
 
 import db from "@/db/drizzle";
 import { getCourseId, getUserProgress } from "@/db/queries";
-import { userProgess } from "@/db/schema";
+import { userProgress } from "@/db/schema";
 import { auth,currentUser } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
@@ -31,7 +31,7 @@ export const upsertUserProgress = async (courseId:number)=>{
     const existingUserProgress = await getUserProgress()
 
     if(existingUserProgress){
-        await db.update(userProgess).set({
+        await db.update(userProgress).set({
             activeCourseId:courseId,
             userName:user.firstName || "User",
             userImageSrc:user.imageUrl || "/mascot.svg"
@@ -44,7 +44,7 @@ export const upsertUserProgress = async (courseId:number)=>{
     }
 
 
-    await db.insert(userProgess).values(
+    await db.insert(userProgress).values(
         {
             userId,
             activeCourseId:courseId,
