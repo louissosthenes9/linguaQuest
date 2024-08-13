@@ -3,7 +3,7 @@ import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
 type Props = {
-    title:string;
+    title:string | undefined;
 }
 export default function Header({title}:Props) {
   return (
