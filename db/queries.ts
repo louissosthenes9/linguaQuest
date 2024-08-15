@@ -2,7 +2,7 @@ import { cache } from "react";
 import db from "./drizzle";
 import { auth } from "@clerk/nextjs/server";
 import { eq } from "drizzle-orm";
-import { courses, userProgress } from "./schema";
+import { courses, userProgress,userProgressRelations } from "./schema";
 
 export const getCourses =  cache(
     async ()=>{
@@ -14,6 +14,7 @@ export const getCourses =  cache(
 export const getUserProgress = cache(
     async () =>{
         const {userId} = await auth();
+        
 
         if(!userId){
             return null
@@ -21,10 +22,7 @@ export const getUserProgress = cache(
 
 
         const data = await db.query.userProgress.findFirst({
-                        where:eq(userProgress.userId,userId),
-                        with:{
-                            activeCourse:true
-                        }
+                        where:eq(userProgress.userId,userId),                   
         })
 
         return data
