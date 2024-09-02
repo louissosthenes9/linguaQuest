@@ -8,7 +8,7 @@ type Props = {
 };
 const UnitBanner = ({ title, description }: Props) => {
   return (
-    <div className="w-fulltext-white rounded-xl bg-green-500 p-5 flex items-center justify-center">
+    <div className="w-full text-white rounded-xl bg-green-500 p-5 flex items-center justify-between">
       <div className="space-y-2.5">
         <h3 className="text-2xl font-bold">{title}</h3>
 
