@@ -4,7 +4,7 @@ import StickyWrapper from '@/components/StickyWrapper'
 import React from 'react'
 import Header from './Header'
 import UserProgress from '@/components/UserProgress'
-import { getUserProgress, getCourses, getUnits } from '@/db/queries'
+import { getUserProgress, getCourses, getUnits, getCourseProgress, getLessonPercentage } from '@/db/queries'
 import { redirect } from 'next/navigation'
 import { unitsRelations } from '@/db/schema'
 import Unit from './Unit'
@@ -12,11 +12,16 @@ import Unit from './Unit'
 const page = async () => {
   const  userProgressData =  getUserProgress()
   const  unitsData        =  getUnits()
+  const courseProgressData = getCourseProgress()
+  const lessonPercentageData = getLessonPercentage()
 
-  const [userProgress,units] = await Promise.all(
+  const [userProgress,units,courseProgress, lessonPercentage] = await Promise.all(
    [ 
     userProgressData,
-    unitsData
+    unitsData,
+    courseProgressData,
+    lessonPercentageData
+
   ]
   )
 
@@ -24,6 +29,9 @@ const page = async () => {
      redirect("/courses")
   }
 
+  if(!courseProgress){
+    redirect('/courses')
+  }
 
 
   return (
@@ -49,8 +57,8 @@ const page = async () => {
                            description={unit.description}
                            title = {unit.title}
                            lessons = {unit.lessons}
-                           activeLesson = {null}
-                           activeLessonPercentage = {0}
+                           activeLesson = {courseProgress.activeLesson}
+                           activeLessonPercentage = {lessonPercentage}
                            
                            
                            >
