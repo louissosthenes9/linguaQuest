@@ -36,11 +36,18 @@ userSubscription,
       return uncompletedIndex === -1 ? 0 : uncompletedIndex 
     })
   // current challenge
+    const [status,setStatus] = useState<"correct" | "none" | "wrong ">("none")
     const challenge = challenges[activeIndex];
     const title = challenge.type === "ASSIST"  ? "Select the corrent meaning" : challenge.question
-   
+    const [selectedOption, setSelectedOption] = useState<number>()
    const options = challenge?.challengeOptions ?? [];
    
+   const onSelect = (id : number)=>{
+        if(status !== "none") return;
+
+        setSelectedOption(id)
+   }
+
     return (
     <>
         <Header
@@ -65,7 +72,7 @@ userSubscription,
 
                      <Challenge  
                 options={options}
-                onSelect={() => { } }
+                onSelect={onSelect}
                 status="none"
                 selectedOption={undefined}
                 disabled={false}
