@@ -7,6 +7,7 @@ import Challenge from "./Challenge";
 import Footer from "./Footer";
 import { upsertChallengeProgress } from "@/actions/challenge-progress";
 import { toast } from "sonner";
+import { reduceHearts } from "@/actions/user-progress";
 
 type Props = {
   initialPercentage: number;
@@ -103,7 +104,23 @@ const Quiz = ({
             }
            )
       }else{
-            alert("oops")
+            startTransition(
+              ()=>{
+                reduceHearts(challenge.id).then((response)=>{
+                  if(typeof response === 'number'){
+                    setHearts((prev)=>Math.max(prev -1, 0))
+                  }else if(response?.error === 'hearts'){
+                      return;
+                  }else if(!response.error){
+                    setHearts((prev)=>Math.max(prev -1, 0))
+                  }
+
+                  setStatus('wrong')
+                  setHearts((prev)=>Math.max(prev -1, 0))
+                 
+                }).catch(()=>toast.error("something went wrong. Please try again"))
+              }
+            )
       }
 
 
